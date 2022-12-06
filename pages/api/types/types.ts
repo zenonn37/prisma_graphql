@@ -26,5 +26,6 @@ type post{
 type Query{
     users:[user]
     posts:[post]
+    countPosts:JSONObject
 }
 `
