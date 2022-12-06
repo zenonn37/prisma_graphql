@@ -9,8 +9,8 @@ type user{
     id:Int!
     name:String!
     email:String
-    createdAt:String
-    updatedAt:String
+    createdat:String
+    updatedat:String
   
 }
 
