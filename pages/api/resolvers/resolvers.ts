@@ -19,6 +19,11 @@ export const resolvers = {
         posts:async () => {
             const posts = await prisma.post.findMany()
             return posts
+        },
+        engagment:async () => {
+            const engagment = await prisma.engagment.count()
+            return engagment;
         }
+        
     }
 }

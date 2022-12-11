@@ -42,3 +42,9 @@ model Comments{
   updatedAt DateTime @default(now())
 
 }
+model Engagment{
+    id Int @id @default(autoincrement())
+    Likes String
+    Comments String
+    Saves String
+}

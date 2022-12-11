@@ -26,6 +26,16 @@ type post{
 type Query{
     users:[user]
     posts:[post]
+    engagment: [engagment]
     countPosts:JSONObject
+}
+
+type engagment{
+    id:Int!
+    Likes: String! 
+    Comments: String! 
+    Saves:String!  
+    
+
 }
 `

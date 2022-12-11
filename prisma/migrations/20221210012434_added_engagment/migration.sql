@@ -1,0 +1,7 @@
+-- CreateTable
+CREATE TABLE "Engagment" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "Likes" INTEGER NOT NULL,
+    "Comments" INTEGER NOT NULL,
+    "Saves" INTEGER NOT NULL
+);
