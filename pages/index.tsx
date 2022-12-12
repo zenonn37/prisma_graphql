@@ -24,9 +24,8 @@ const GET_POSTS = gql`
   posts {
     id
     title
-    content
-    published
-    authorId
+    
+   
   }
 }
 `
@@ -36,6 +35,12 @@ const Home: NextPage = () => {
 
   const {loading, error, data} = useQuery(GET_POSTS)
 
+  if (loading) return <p>Loading...</p>;
+  if (error) {
+    console.log(error);
+    
+  }
+
   return (
       <div>
       <Head>
@@ -43,14 +48,17 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+  
       {
         data.posts.map(({id,title}) => (
           <div key={id}>
               <h2>{title}</h2>
+              {/* <p>
+                {content}
+              </p> */}
           </div>
         ))
       }
-
     
 
 
