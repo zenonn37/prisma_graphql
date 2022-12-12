@@ -35,7 +35,8 @@ type engagment{
     Likes: String! 
     Comments: String! 
     Saves:String!  
-    
+    author: user
+    authorId: Int
 
 }
 `
