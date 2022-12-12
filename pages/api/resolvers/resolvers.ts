@@ -13,6 +13,8 @@ export const resolvers = {
         countPosts:async() => {
             const posts = await prisma.post.count()
             console.log(posts);
+
+            
             
             return posts
         },
