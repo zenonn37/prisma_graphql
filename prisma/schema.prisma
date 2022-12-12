@@ -19,7 +19,6 @@ model User {
   createdAt String?
   updatedAt String?
 
-  Engagment Engagment[]
 }
 
 model Post {
@@ -29,8 +28,10 @@ model Post {
   published Boolean  @default(false)
   author    User     @relation(fields: [authorId], references: [id])
   authorId  Int
+  engagment Engagment[]
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
+  
 }
 
 model Comments {
@@ -44,9 +45,11 @@ model Comments {
 
 model Engagment {
   id       Int    @id @default(autoincrement())
-  Likes    String
-  Comments String
-  Saves    String
-  author   User   @relation(fields: [authorId], references: [id])
-  authorId Int
+  likes    String
+  comments String
+  saves    String
+  posts    Post  @relation(fields: [postId], references: [id])
+  postId Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
 }
