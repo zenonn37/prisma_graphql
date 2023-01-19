@@ -47,7 +47,7 @@ const Home: NextPage = () => {
   }
 
   return (
-      <div>
+      <>
       <Head>
         <title>Prisma</title>
         <link rel="icon" href="/favicon.ico" />
@@ -57,17 +57,29 @@ const Home: NextPage = () => {
 
     
       {
-        data.posts.map(({id,title,content,published}:any) => (
-          <div
+        data?.posts.map(({id,title,content,published}:any) => (
+          <div className='w-[500px] bg-cyan-100 mx-auto p-3'
            key={id}>
-              <h2>{title}</h2>
-              <p>
-                {content}
-              </p>
-              <div>
-                {published === "true" ? "Active" : "Unpublished"}
+            <div className='flex justify-start items-center'>
+            <div className='flex justify-center items-center text-white
+            bg-sky-400 h-[40px] w-[40px] rounded-full mr-3'>
+              LB
               </div>
-          </div>
+            <div>
+              <h2 className=''>{title}</h2>
+              <p>{content}</p>
+              </div>
+              <div className='flex-1 text-right'>
+                {published === "true" ? "Active" : "Unpublished"}
+                <div>
+                  20th
+                </div>
+              </div>
+              </div>
+          
+           
+              </div>
+       
         ))
       }
       </div>
@@ -77,7 +89,7 @@ const Home: NextPage = () => {
     
       
     </div>
-    </div>
+    </>
   )
 }
 
