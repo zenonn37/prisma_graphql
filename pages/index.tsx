@@ -24,6 +24,8 @@ const GET_POSTS = gql`
   posts {
     id
     title
+    content
+    published
     
    
   }
@@ -36,8 +38,11 @@ const Home: NextPage = () => {
   const {loading, error, data} = useQuery(GET_POSTS)
 
   if (loading) return <p>Loading...</p>;
+  console.log(data);
   if (error) {
     console.log(error);
+  
+    
     
   }
 
@@ -47,23 +52,31 @@ const Home: NextPage = () => {
         <title>Prisma</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+<div className="flex justify-center item h-screen">
+    <div className="container mx-auto">
 
-  
+    
       {
-        data.posts.map(({id,title}) => (
-          <div key={id}>
+        data.posts.map(({id,title,content,published}:any) => (
+          <div
+           key={id}>
               <h2>{title}</h2>
-              {/* <p>
+              <p>
                 {content}
-              </p> */}
+              </p>
+              <div>
+                {published === "true" ? "Active" : "Unpublished"}
+              </div>
           </div>
         ))
       }
+      </div>
     
 
 
     
       
+    </div>
     </div>
   )
 }
